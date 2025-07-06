@@ -187,11 +187,11 @@ namespace CoffeeCafeProject
             //Validate UI ก่อน
             if (menuImage == null)
             {
-                showWarningMSG("เลือกรูปเมนูด้วย...");
+                showWarningMSG("เลือกรูปเมนูด้วยครับ...");
             }
             else if (tbMenuName.Text.Trim() == "") //tbMenuName.Text.Length == 0
             {
-                showWarningMSG("ป้อนชื่อสินค้าด้วย...");
+                showWarningMSG("ป้อนชื่อสินค้าด้วยครับ...");
             }
             else if (tbMenuPrice.Text.Trim() == "") //tbMenuName.Text.Length == 0
             {
