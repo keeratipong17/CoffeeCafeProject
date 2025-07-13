@@ -21,8 +21,8 @@ namespace CoffeeCafeProject
         private void getAllMemberToListView()
         {
             //กำหนด Connect String เพื่อติดต่อฐานข้อมูล
-            string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            //string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
+            using (SqlConnection sqlConnection = new SqlConnection(ShareResource.connectionString))
             {
                 try
                 {
@@ -45,6 +45,7 @@ namespace CoffeeCafeProject
                         lvShowAllMember.Columns.Add("รหัสสมาชิก", 100, HorizontalAlignment.Left);
                         lvShowAllMember.Columns.Add("เบอร์โทร", 150, HorizontalAlignment.Left);
                         lvShowAllMember.Columns.Add("ชื่อ", 100, HorizontalAlignment.Left);
+                        
 
                         foreach (DataRow dataRow in dataTable.Rows)
                         {
@@ -54,6 +55,7 @@ namespace CoffeeCafeProject
                             // เอาแต่ละรายการใส่ใน Item
                             item.SubItems.Add(dataRow["memberPhone"].ToString());
                             item.SubItems.Add(dataRow["memberName"].ToString());
+                            
 
                             //เอาข้อมูลใน Item 
                             lvShowAllMember.Items.Add(item);
@@ -141,9 +143,9 @@ namespace CoffeeCafeProject
             if (MessageBox.Show("ต้องการลบเมนูหรือไม่", "ยืนยัน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 //ลบออกจาก database
-                string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
+                //string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
 
-                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                using (SqlConnection sqlConnection = new SqlConnection(ShareResource.connectionString))
                 {
                     try
                     {
@@ -205,8 +207,8 @@ namespace CoffeeCafeProject
             }
             else
             {
-                string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
-                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                //string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
+                using (SqlConnection sqlConnection = new SqlConnection(ShareResource.connectionString))
                 {
                     try
                     {
@@ -259,9 +261,9 @@ namespace CoffeeCafeProject
             }
             else
             {
-                string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
+                //string connectionString = @"Server=DESKTOP-9U4FO0V\SQLEXPRESS;Database=coffee_cafe_db;Trusted_Connection=True";
 
-                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                using (SqlConnection sqlConnection = new SqlConnection(ShareResource.connectionString))
                 {
                     try
                     {
@@ -310,5 +312,7 @@ namespace CoffeeCafeProject
         {
 
         }
+
+        
     }
 }
