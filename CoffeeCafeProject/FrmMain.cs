@@ -574,6 +574,24 @@ namespace CoffeeCafeProject
         {
             //ดับเบิ้ลคลิกที่รายการใน lvOrderMenu เพื่อลบรายการนั้นออก
             //เมื่อรายการถูกลบแล้วให้ลบแต้มสมาฃิก 1 แต้ม และจำนวนเงินก็ต้องลดลงด้วย
+            if (lvOrderMenu.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = lvOrderMenu.SelectedItems[0];
+                if (selectedItem != null)
+                {
+                    //ลบรายการที่เลือกออกจาก lvOrderMenu
+                    lvOrderMenu.Items.Remove(selectedItem);
+
+                    //ลบแต้มสมาชิก 1 แต้ม
+                    if (tbMemberName.Text != "(ชื่อสมาชิก)")
+                    {
+                        lbMemberScore.Text = (int.Parse(lbMemberScore.Text) - 1).ToString();
+                    }
+
+                    //ลบราคาออกจาก lbOrderPay
+                    lbOrderPay.Text = (float.Parse(lbOrderPay.Text) - float.Parse(selectedItem.SubItems[1].Text)).ToString();
+                }
+            }
         }
     }
 }
